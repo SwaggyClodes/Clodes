@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>clodes — Custom Minecraft Plugin Developer</title>
+  <meta name="description" content="clodes — Custom Minecraft Plugin Developer. SMP abilities, custom events, and powerful mechanics built from scratch." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav class="nav">
+    <a href="#home" class="nav__logo">clodes</a>
+    <ul class="nav__links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <!-- LANDING -->
+    <section id="home" class="hero">
+      <div class="hero__inner">
+        <p class="hero__eyebrow">Hello, I'm</p>
+        <h1 class="hero__title">clodes</h1>
+        <p class="hero__tagline">
+          Custom Minecraft Plugin Developer — SMP abilities, custom events, and powerful mechanics built from scratch.
+        </p>
+        <div class="hero__cta">
+          <a href="#services" class="btn btn--primary">🚀 See my services</a>
+          <a href="#contact" class="btn btn--ghost">💬 Contact on Discord</a>
+        </div>
+      </div>
+      <div class="hero__scroll" aria-hidden="true">scroll ↓</div>
+    </section>
+
+    <!-- DISCORD CALLOUT -->
+    <section class="section reveal">
+      <div class="discord-card">
+        <div class="discord-card__icon" aria-hidden="true">💬</div>
+        <div class="discord-card__body">
+          <p class="discord-card__label">Discord</p>
+          <button type="button" class="discord-card__handle" id="copyDiscord" aria-label="Copy Discord username">
+            <span>swaggyclodes</span>
+            <span class="discord-card__copy" id="copyLabel">Click to copy</span>
+          </button>
+          <p class="discord-card__note">Best way to contact me for commissions &amp; support.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="section reveal">
+      <p class="section__label">01 — Services</p>
+      <h2 class="section__title">What I build</h2>
+      <div class="projects">
+        <div class="project">
+          <div class="project__meta">
+            <span class="project__tag">🎮 SMP</span>
+          </div>
+          <h3 class="project__name">SMP Plugins</h3>
+          <p class="project__desc">
+            Custom SMP abilities designed to be perfect for your idea — unique mechanics, progression, and systems tailored to your server's identity.
+          </p>
+          <p class="project__price">£18 – £75+</p>
+        </div>
+
+        <div class="project">
+          <div class="project__meta">
+            <span class="project__tag">⚡ Events</span>
+          </div>
+          <h3 class="project__name">Custom Mechanics / Events</h3>
+          <p class="project__desc">
+            Want some tricky coding with heavy, powerful events? This is the service for you — complex mechanics, event plugins, and performance-tuned systems.
+          </p>
+          <p class="project__price">£25 – £90+</p>
+        </div>
+      </div>
+
+      <div class="pricing-note">
+        <p class="pricing-note__title">📌 Pricing Notice</p>
+        <p class="pricing-note__text">
+          Prices shown are <strong>starting estimates only</strong> and may vary depending on project complexity. For exact pricing, please contact me directly on Discord.
+        </p>
+        <a href="#contact" class="btn btn--ghost btn--small">💬 Get exact pricing</a>
+      </div>
+    </section>
+
+    <!-- WHY WORK WITH ME -->
+    <section class="section reveal">
+      <p class="section__label">02 — Why work with me</p>
+      <h2 class="section__title">Why clodes?</h2>
+      <ul class="perks">
+        <li class="perks__item">
+          <span class="perks__check">✔</span>
+          <div>
+            <strong>Built from scratch.</strong>
+            <span>No recycled templates or generic systems — every plugin is shaped around your server's vision.</span>
+          </div>
+        </li>
+        <li class="perks__item">
+          <span class="perks__check">✔</span>
+          <div>
+            <strong>Clean, performant code.</strong>
+            <span>Optimised to keep TPS healthy even on busy servers with hundreds of players.</span>
+          </div>
+        </li>
+        <li class="perks__item">
+          <span class="perks__check">✔</span>
+          <div>
+            <strong>Clear communication.</strong>
+            <span>Regular updates, transparent pricing, and no surprises during development.</span>
+          </div>
+        </li>
+        <li class="perks__item">
+          <span class="perks__check">✔</span>
+          <div>
+            <strong>Post-delivery support.</strong>
+            <span>Bug fixes and tweaks after handoff — I don't disappear once the payment clears.</span>
+          </div>
+        </li>
+        <li class="perks__item">
+          <span class="perks__check">✔</span>
+          <div>
+            <strong>Proven experience.</strong>
+            <span>Worked with established servers including <em>Sins SMP</em> and <em>Relic SMP</em>.</span>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- PAST WORK -->
+    <section id="work" class="section reveal">
+      <p class="section__label">03 — Previous work</p>
+      <h2 class="section__title">Servers I've worked with</h2>
+      <div class="servers">
+        <!-- To add more: copy a .server block below and change the name -->
+        <div class="server">⭐ Sins SMP</div>
+        <div class="server">⭐ Relic SMP</div>
+        <div class="server server--muted">More coming soon…</div>
+      </div>
+      <p class="servers__note">
+        Join the Discord for client vouches, screenshots, and feedback from previous projects.
+      </p>
+    </section>
+
+    <!-- PAYMENT METHODS -->
+    <section class="section reveal">
+      <p class="section__label">04 — Payment</p>
+      <h2 class="section__title">Payment methods</h2>
+      <div class="payments">
+        <div class="payment">
+          <p class="payment__name">PayPal</p>
+          <p class="payment__desc">Secure payments via PayPal — invoice sent on order confirmation.</p>
+        </div>
+        <div class="payment">
+          <p class="payment__name">Revolut</p>
+          <p class="payment__desc">Bank transfers via Revolut — details shared privately on Discord.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section reveal section--contact">
+      <p class="section__label">05 — Contact</p>
+      <h2 class="section__title">Let's talk.</h2>
+      <p class="contact__text">
+        Ping me on Discord — that's the quickest way to discuss your project, get a quote, and get started.
+      </p>
+      <div class="contact__discord">
+        <span class="contact__discord-label">💬 Discord</span>
+        <span class="contact__discord-handle">swaggyclodes</span>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> clodes. Custom Minecraft plugin development.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
