@@ -33,7 +33,7 @@ if (copyBtn && copyLabel) {
       copyLabel.textContent = 'Copied ✓';
       setTimeout(() => {
         copyBtn.classList.remove('is-copied');
-        copyLabel.textContent = 'Click to copy';
+        copyLabel.textContent = 'Copy';
       }, 1800);
     } catch {
       copyLabel.textContent = 'Copy failed';
