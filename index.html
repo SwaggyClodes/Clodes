@@ -12,21 +12,27 @@
 </head>
 <body>
   <nav class="nav">
-    <a href="#home" class="nav__logo">Clodes</a>
+    <a href="#home" class="nav__logo">
+      <img class="nav__pfp" src="images/pfp.jpg" alt="Clodes" />
+      <span>Clodes</span>
+    </a>
     <ul class="nav__links">
       <li><a href="#services">Services</a></li>
-      <li><a href="#work">Work</a></li>
+      <li><a href="#why">Why</a></li>
       <li><a href="#process">Process</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
 
   <main>
-    <!-- LANDING -->
+    <!-- HERO -->
     <section id="home" class="hero">
       <div class="hero__inner">
         <p class="hero__eyebrow">Minecraft Plugin Specialist</p>
-        <h1 class="hero__title">Clodes</h1>
+        <div class="hero__title-row">
+          <img class="hero__pfp" src="images/pfp.jpg" alt="Clodes profile picture" />
+          <h1 class="hero__title">Clodes</h1>
+        </div>
         <p class="hero__tagline">
           I build custom plugin systems for servers that care about standing out. Not another reskinned SMP, not another generic event plugin. Full systems designed around your identity and built to last.
         </p>
@@ -39,177 +45,186 @@
     </section>
 
     <!-- SERVICES -->
-    <section id="services" class="section reveal">
-      <p class="section__label">Services</p>
-      <h2 class="section__title">Two ways to work with me</h2>
-      <div class="projects">
-        <div class="project">
-          <div class="project__meta">
-            <span class="project__tag">Standard</span>
+    <section id="services" class="section reveal section--with-skin">
+      <img class="skin skin--salute" src="images/skin-salute.png" alt="" aria-hidden="true" />
+      <div class="section__content">
+        <p class="section__label">Services</p>
+        <h2 class="section__title">Two ways to work with me</h2>
+        <div class="projects">
+          <div class="project">
+            <div class="project__meta">
+              <span class="project__tag">Standard</span>
+            </div>
+            <h3 class="project__name">Standard</h3>
+            <p class="project__desc">
+              A full plugin system built from scratch for your server. Progression, custom abilities, config files, and documentation. Designed to sit at the core of your server, not bolted on the side.
+            </p>
+            <ul class="project__includes">
+              <li>Full system</li>
+              <li>Progression and abilities</li>
+              <li>Clean config</li>
+              <li>Documentation</li>
+            </ul>
+            <p class="project__price">£18 – £50</p>
           </div>
-          <h3 class="project__name">Standard</h3>
-          <p class="project__desc">
-            Focused single-system work. A custom ability set, an event plugin, or a specific mechanic. Built from scratch around your concept, tested properly before handoff, and delivered with clean config and docs your staff can actually use.
-          </p>
-          <ul class="project__includes">
-            <li>One custom system</li>
-            <li>Clean config files</li>
-            <li>Two rounds of revisions</li>
-            <li>Post-launch bug fixes</li>
-          </ul>
-          <p class="project__price">£18 – £50</p>
-        </div>
 
-        <div class="project project--featured">
-          <div class="project__meta">
-            <span class="project__tag">Deluxe</span>
-            <span class="project__badge">Most popular</span>
+          <div class="project project--featured">
+            <div class="project__meta">
+              <span class="project__tag">Custom</span>
+              <span class="project__badge">Most popular</span>
+            </div>
+            <h3 class="project__name">Custom</h3>
+            <p class="project__desc">
+              A multi-system build designed around your full server concept. Abilities, events, mechanics, and economy working together as one connected experience. For servers with a clear identity they want brought to life properly.
+            </p>
+            <ul class="project__includes">
+              <li>Multi-system build</li>
+              <li>Built around your full server concept</li>
+              <li>Test builds throughout</li>
+              <li>Extended post-launch support</li>
+            </ul>
+            <p class="project__price">£75 – £200</p>
           </div>
-          <h3 class="project__name">Deluxe</h3>
-          <p class="project__desc">
-            Full connected builds. Abilities, events, mechanics, and economy designed as one system rather than plugins stuck together. For servers with a full identity they want brought to life properly.
-          </p>
-          <ul class="project__includes">
-            <li>Multiple connected systems</li>
-            <li>Custom config tools</li>
-            <li>Test builds throughout development</li>
-            <li>Extended post-launch support</li>
-          </ul>
-          <p class="project__price">£75 – £200</p>
         </div>
-      </div>
-
-      <div class="pricing-note">
-        <p class="pricing-note__text">
-          Pricing scales with scope. Every quote is custom. DM your idea and I'll come back with a detailed breakdown within 24 hours.
-        </p>
-        <a href="#contact" class="btn btn--ghost btn--small">Get a quote</a>
       </div>
     </section>
 
-    <!-- PAST WORK -->
-    <section id="work" class="section reveal">
-      <p class="section__label">Work</p>
-      <h2 class="section__title">Servers running my systems</h2>
-      <p class="section__intro">
-        A few of the servers I've built for. For screenshots, clips, and vouches, pop into the Discord.
-      </p>
-      <div class="servers">
-        <!-- To add more: copy a .server block below and change the name -->
-        <div class="server">Sins SMP</div>
-        <div class="server">Relic SMP</div>
-        <div class="server server--muted">More coming soon</div>
-      </div>
-    </section>
+    <!-- WHY CLODES (merged with Work) -->
+    <section id="why" class="section reveal section--with-skin">
+      <img class="skin skin--stand" src="images/skin-stand.png" alt="" aria-hidden="true" />
+      <div class="section__content">
+        <p class="section__label">Why work with me</p>
+        <h2 class="section__title">Why Clodes</h2>
+        <ul class="perks">
+          <li class="perks__item">
+            <span class="perks__check">✓</span>
+            <div>
+              <strong>Nothing reused.</strong>
+              <span>Every system is written from scratch for your server. No recycled code between clients. Your work stays yours and you never have to worry about seeing it on a competitor.</span>
+            </div>
+          </li>
+          <li class="perks__item">
+            <span class="perks__check">✓</span>
+            <div>
+              <strong>TPS is a priority, not an afterthought.</strong>
+              <span>I profile and optimise every system before delivery. Your server stays playable when it's full and the mechanics are all firing at once.</span>
+            </div>
+          </li>
+          <li class="perks__item">
+            <span class="perks__check">✓</span>
+            <div>
+              <strong>I over-communicate.</strong>
+              <span>You'll know what I'm building as I build it. Test builds go out when features are ready, and scope gets agreed before anything's written.</span>
+            </div>
+          </li>
+          <li class="perks__item">
+            <span class="perks__check">✓</span>
+            <div>
+              <strong>Support doesn't end at handoff.</strong>
+              <span>Bug fixes and tweaks after delivery are part of the deal. I'm not going to ghost you when the invoice clears.</span>
+            </div>
+          </li>
+          <li class="perks__item">
+            <span class="perks__check">✓</span>
+            <div>
+              <strong>I'm selective.</strong>
+              <span>I take on a small number of projects at a time. If I'm working with you, it's because I believe the idea is worth building properly.</span>
+            </div>
+          </li>
+        </ul>
 
-    <!-- WHY WORK WITH ME -->
-    <section class="section reveal">
-      <p class="section__label">Why work with me</p>
-      <h2 class="section__title">Why Clodes</h2>
-      <ul class="perks">
-        <li class="perks__item">
-          <span class="perks__check">✓</span>
-          <div>
-            <strong>Nothing reused.</strong>
-            <span>Every system is written from scratch for your server. No recycled code between clients. Your work stays yours and you never have to worry about seeing it on a competitor.</span>
+        <!-- Work sub-block (merged in) -->
+        <div class="work-block">
+          <p class="work-block__label">Servers I've built for</p>
+          <div class="servers">
+            <!-- To add more: copy a .server block and change the name -->
+            <div class="server">Sins SMP</div>
+            <div class="server">Relic SMP</div>
+            <div class="server server--muted">More coming soon</div>
           </div>
-        </li>
-        <li class="perks__item">
-          <span class="perks__check">✓</span>
-          <div>
-            <strong>TPS is a priority, not an afterthought.</strong>
-            <span>I profile and optimise every system before delivery. Your server stays playable when it's full and the mechanics are all firing at once.</span>
-          </div>
-        </li>
-        <li class="perks__item">
-          <span class="perks__check">✓</span>
-          <div>
-            <strong>I over-communicate.</strong>
-            <span>You'll know what I'm building as I build it. Test builds go out when features are ready, and scope gets agreed before anything's written.</span>
-          </div>
-        </li>
-        <li class="perks__item">
-          <span class="perks__check">✓</span>
-          <div>
-            <strong>Support doesn't end at handoff.</strong>
-            <span>Bug fixes and tweaks after delivery are part of the deal. I'm not going to ghost you when the invoice clears.</span>
-          </div>
-        </li>
-        <li class="perks__item">
-          <span class="perks__check">✓</span>
-          <div>
-            <strong>I'm selective.</strong>
-            <span>I take on a small number of projects at a time. If I'm working with you, it's because I believe the idea is worth building properly. Past clients include <em>Sins SMP</em> and <em>Relic SMP</em>.</span>
-          </div>
-        </li>
-      </ul>
+        </div>
+      </div>
     </section>
 
     <!-- PROCESS -->
-    <section id="process" class="section reveal">
-      <p class="section__label">Process</p>
-      <h2 class="section__title">How working with me goes</h2>
-      <ol class="process">
-        <li class="process__step">
-          <span class="process__num">01</span>
-          <div>
-            <strong>DM the idea.</strong>
-            <span>Send me what you're thinking. It can be a detailed brief or a rough concept. Both work.</span>
-          </div>
-        </li>
-        <li class="process__step">
-          <span class="process__num">02</span>
-          <div>
-            <strong>Scope call.</strong>
-            <span>We talk through it on Discord and lock down exactly what's being built. No surprises later.</span>
-          </div>
-        </li>
-        <li class="process__step">
-          <span class="process__num">03</span>
-          <div>
-            <strong>Quote within 24 hours.</strong>
-            <span>Detailed breakdown of scope, timeline, and fixed price. You know what you're paying for.</span>
-          </div>
-        </li>
-        <li class="process__step">
-          <span class="process__num">04</span>
-          <div>
-            <strong>Deposit and build.</strong>
-            <span>Half up front, test builds sent regularly as I work. You see progress, not promises.</span>
-          </div>
-        </li>
-        <li class="process__step">
-          <span class="process__num">05</span>
-          <div>
-            <strong>Delivery and support.</strong>
-            <span>Final build plus docs. Bug fixes and tweaks after launch included.</span>
-          </div>
-        </li>
-      </ol>
+    <section id="process" class="section reveal section--with-skin">
+      <img class="skin skin--head" src="images/skin-head.png" alt="" aria-hidden="true" />
+      <div class="section__content">
+        <p class="section__label">Process</p>
+        <h2 class="section__title">How working with me goes</h2>
+        <ol class="process">
+          <li class="process__step">
+            <span class="process__num">01</span>
+            <div>
+              <strong>DM the idea.</strong>
+              <span>Send me what you're thinking. It can be a detailed brief or a rough concept. Both work.</span>
+            </div>
+          </li>
+          <li class="process__step">
+            <span class="process__num">02</span>
+            <div>
+              <strong>Scope call.</strong>
+              <span>We talk through it on Discord and lock down exactly what's being built. No surprises later.</span>
+            </div>
+          </li>
+          <li class="process__step">
+            <span class="process__num">03</span>
+            <div>
+              <strong>Deposit and build.</strong>
+              <span>Half up front, test builds sent regularly as I work. You see progress, not promises.</span>
+            </div>
+          </li>
+          <li class="process__step">
+            <span class="process__num">04</span>
+            <div>
+              <strong>Delivery and support.</strong>
+              <span>Final build plus docs. Bug fixes and tweaks after launch are part of the deal.</span>
+            </div>
+          </li>
+        </ol>
+      </div>
     </section>
 
     <!-- CONTACT -->
-    <section id="contact" class="section reveal section--contact">
-      <p class="section__label">Contact</p>
-      <h2 class="section__title">Got an idea?</h2>
-      <p class="contact__text">
-        If you've got a clear vision, send it. If you're still shaping the idea, send that too. Part of my job is helping you turn a rough concept into something actually buildable. Fastest reply is on Discord and I get back within 24 hours.
-      </p>
-
-      <button type="button" class="discord-card" id="copyDiscord" aria-label="Copy Discord username">
-        <span class="discord-card__icon" aria-hidden="true">💬</span>
-        <div class="discord-card__body">
-          <span class="discord-card__label">Discord</span>
-          <span class="discord-card__handle">swaggyclodes</span>
-        </div>
-        <span class="discord-card__copy" id="copyLabel">Copy</span>
-      </button>
-
-      <div class="payment-mini">
-        <p class="payment-mini__label">Payment</p>
-        <p class="payment-mini__text">
-          Invoiced on agreement. Deposit up front for larger scopes. PayPal or Revolut bank transfer.
+    <section id="contact" class="section reveal section--contact section--with-skin">
+      <img class="skin skin--torso" src="images/skin-torso.png" alt="" aria-hidden="true" />
+      <div class="section__content">
+        <p class="section__label">Contact</p>
+        <h2 class="section__title">Got an idea?</h2>
+        <p class="contact__text">
+          If you've got a clear vision, send it. If you're still shaping the idea, send that too. Part of my job is helping you turn a rough concept into something actually buildable. Fastest reply is on Discord.
         </p>
+
+        <div class="discord-cards">
+          <!-- Discord username - click to copy -->
+          <button type="button" class="discord-card" id="copyDiscord" aria-label="Copy Discord username">
+            <span class="discord-card__icon" aria-hidden="true">💬</span>
+            <div class="discord-card__body">
+              <span class="discord-card__label">Discord</span>
+              <span class="discord-card__handle">swaggyclodes</span>
+            </div>
+            <span class="discord-card__action" id="copyLabel">Copy</span>
+          </button>
+
+          <!-- Discord server - click to open invite
+               REPLACE the href below with your actual Discord server invite link.
+               Example: https://discord.gg/yourInviteCode -->
+          <a class="discord-card discord-card--link" href="https://discord.gg/YOUR-INVITE-CODE" target="_blank" rel="noopener" aria-label="Open Discord server">
+            <span class="discord-card__icon" aria-hidden="true">🚀</span>
+            <div class="discord-card__body">
+              <span class="discord-card__label">Discord Server</span>
+              <span class="discord-card__handle">Join the community</span>
+            </div>
+            <span class="discord-card__action">Open →</span>
+          </a>
+        </div>
+
+        <div class="payment-mini">
+          <p class="payment-mini__label">Payment</p>
+          <p class="payment-mini__text">
+            Invoiced on agreement. Deposit up front for larger scopes. PayPal or Revolut bank transfer.
+          </p>
+        </div>
       </div>
     </section>
   </main>

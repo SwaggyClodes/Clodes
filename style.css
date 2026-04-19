@@ -2,7 +2,6 @@
 :root {
   --bg: #0b1113;
   --bg-elev: #121a1d;
-  --bg-elev-2: #16211f;
   --text: #ececec;
   --text-dim: #8a9b9e;
   --text-soft: #b4c2c5;
@@ -35,7 +34,6 @@ ul, ol { list-style: none; }
 img { max-width: 100%; display: block; }
 button { font: inherit; cursor: pointer; background: none; border: none; color: inherit; }
 
-/* Subtle radial glow behind hero */
 body::before {
   content: '';
   position: fixed;
@@ -57,7 +55,7 @@ main, .nav, .footer { position: relative; z-index: 1; }
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.25rem 2rem;
+  padding: 1rem 2rem;
   backdrop-filter: blur(12px);
   background: rgba(11, 17, 19, 0.7);
   border-bottom: 1px solid transparent;
@@ -66,11 +64,21 @@ main, .nav, .footer { position: relative; z-index: 1; }
 }
 .nav.is-scrolled { border-bottom-color: var(--border); }
 .nav__logo {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
   font-family: 'Fraunces', serif;
-  font-size: 1.3rem;
+  font-size: 1.25rem;
   font-weight: 500;
   letter-spacing: 0.01em;
   color: var(--text);
+}
+.nav__pfp {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--border-soft);
 }
 .nav__links {
   display: flex;
@@ -103,15 +111,29 @@ main, .nav, .footer { position: relative; z-index: 1; }
   opacity: 0;
   animation: fadeUp 0.8s var(--ease) 0.1s forwards;
 }
-.hero__title {
-  font-family: 'Fraunces', serif;
-  font-size: clamp(3.5rem, 10vw, 7rem);
-  font-weight: 500;
-  line-height: 1;
-  letter-spacing: -0.03em;
+.hero__title-row {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
   margin-bottom: 2rem;
   opacity: 0;
   animation: fadeUp 0.8s var(--ease) 0.25s forwards;
+}
+.hero__pfp {
+  width: clamp(56px, 10vw, 88px);
+  height: clamp(56px, 10vw, 88px);
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--border-soft);
+  box-shadow: 0 0 0 4px rgba(94, 234, 212, 0.08), 0 10px 30px -10px rgba(0, 0, 0, 0.6);
+  flex-shrink: 0;
+}
+.hero__title {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(3rem, 9vw, 6.5rem);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.03em;
   background: linear-gradient(180deg, var(--text) 30%, var(--accent) 150%);
   -webkit-background-clip: text;
   background-clip: text;
@@ -181,17 +203,21 @@ main, .nav, .footer { position: relative; z-index: 1; }
   color: var(--accent);
   transform: translateY(-2px);
 }
-.btn--small {
-  padding: 0.6rem 1.1rem;
-  font-size: 0.85rem;
-}
 
-/* ---------- Sections ---------- */
+/* ---------- Section shell (allows skin accents inside) ---------- */
 .section {
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 6rem 2rem;
+  position: relative;
 }
+.section--with-skin {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2.5rem;
+  align-items: flex-start;
+}
+.section__content { min-width: 0; }
 .section__label {
   color: var(--accent);
   font-size: 0.75rem;
@@ -205,29 +231,35 @@ main, .nav, .footer { position: relative; z-index: 1; }
   font-size: clamp(2rem, 5vw, 3rem);
   font-weight: 500;
   letter-spacing: -0.01em;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
   line-height: 1.15;
 }
-.section__intro {
-  color: var(--text-soft);
-  font-size: 1.05rem;
-  margin-bottom: 2.5rem;
-  max-width: 52ch;
+
+/* ---------- Skin accents (pixel-art Minecraft renders) ---------- */
+.skin {
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  -ms-interpolation-mode: nearest-neighbor;
+  pointer-events: none;
+  filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.35));
+  opacity: 0;
+  transform: translateY(15px);
+  transition: opacity 0.8s var(--ease) 0.2s, transform 0.8s var(--ease) 0.2s;
 }
-.section__title + .projects,
-.section__title + .perks,
-.section__title + .process,
-.section__title + .servers,
-.section__title + .contact__text {
-  margin-top: 2rem;
+.reveal.is-visible .skin {
+  opacity: 1;
+  transform: translateY(0);
 }
+.skin--salute { width: 180px; margin-top: 2rem; }
+.skin--stand  { width: 140px; margin-top: 2rem; }
+.skin--head   { width: 150px; margin-top: 2rem; }
+.skin--torso  { width: 160px; margin-top: 2rem; }
 
 /* ---------- Services / Tiers ---------- */
 .projects {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
-  margin-bottom: 2rem;
 }
 .project {
   position: relative;
@@ -275,10 +307,7 @@ main, .nav, .footer { position: relative; z-index: 1; }
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.02);
 }
-.project__badge {
-  color: var(--accent);
-  font-weight: 500;
-}
+.project__badge { color: var(--accent); font-weight: 500; }
 .project__name {
   font-family: 'Fraunces', serif;
   font-size: 1.75rem;
@@ -324,28 +353,12 @@ main, .nav, .footer { position: relative; z-index: 1; }
   letter-spacing: -0.01em;
 }
 
-/* ---------- Pricing note ---------- */
-.pricing-note {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1.5rem;
-  padding: 1.5rem 1.75rem;
-  background: var(--bg-elev);
-  border: 1px dashed var(--border-soft);
-  border-radius: var(--radius);
-}
-.pricing-note__text {
-  color: var(--text-soft);
-  font-size: 0.95rem;
-  flex: 1;
-}
-
 /* ---------- Perks ---------- */
 .perks {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
+  margin-bottom: 3rem;
 }
 .perks__item {
   display: flex;
@@ -365,7 +378,6 @@ main, .nav, .footer { position: relative; z-index: 1; }
   font-weight: 700;
   font-size: 1rem;
   flex-shrink: 0;
-  line-height: 1.5;
   width: 24px;
   height: 24px;
   display: inline-flex;
@@ -375,58 +387,22 @@ main, .nav, .footer { position: relative; z-index: 1; }
   border-radius: 50%;
 }
 .perks__item > div { display: flex; flex-direction: column; gap: 0.3rem; }
-.perks__item strong {
-  color: var(--text);
-  font-weight: 600;
-  font-size: 1rem;
+.perks__item strong { color: var(--text); font-weight: 600; font-size: 1rem; }
+.perks__item span { color: var(--text-dim); font-size: 0.92rem; line-height: 1.65; }
+
+/* ---------- Work sub-block (merged inside Why section) ---------- */
+.work-block {
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
 }
-.perks__item span {
-  color: var(--text-dim);
-  font-size: 0.92rem;
-  line-height: 1.65;
-}
-.perks__item em {
+.work-block__label {
   color: var(--accent);
-  font-style: normal;
+  font-size: 0.75rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
   font-weight: 500;
 }
-
-/* ---------- Process ---------- */
-.process {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  position: relative;
-}
-.process__step {
-  display: flex;
-  gap: 1.5rem;
-  padding: 1.5rem 0;
-  border-bottom: 1px solid var(--border);
-}
-.process__step:last-child { border-bottom: none; }
-.process__num {
-  font-family: 'Fraunces', serif;
-  font-size: 1.3rem;
-  font-weight: 500;
-  color: var(--accent);
-  flex-shrink: 0;
-  letter-spacing: 0.02em;
-  min-width: 2.5rem;
-}
-.process__step > div { display: flex; flex-direction: column; gap: 0.3rem; }
-.process__step strong {
-  color: var(--text);
-  font-weight: 600;
-  font-size: 1.05rem;
-}
-.process__step span {
-  color: var(--text-dim);
-  font-size: 0.95rem;
-  line-height: 1.65;
-}
-
-/* ---------- Servers ---------- */
 .servers {
   display: flex;
   flex-wrap: wrap;
@@ -446,39 +422,63 @@ main, .nav, .footer { position: relative; z-index: 1; }
   color: var(--accent);
   transform: translateY(-2px);
 }
-.server--muted {
-  color: var(--text-dim);
-  font-style: italic;
-}
-.server--muted:hover {
-  border-color: var(--border);
-  color: var(--text-dim);
-  transform: none;
-}
+.server--muted { color: var(--text-dim); font-style: italic; }
+.server--muted:hover { border-color: var(--border); color: var(--text-dim); transform: none; }
 
-/* ---------- Contact / Discord ---------- */
+/* ---------- Process ---------- */
+.process {
+  display: flex;
+  flex-direction: column;
+}
+.process__step {
+  display: flex;
+  gap: 1.5rem;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.process__step:last-child { border-bottom: none; }
+.process__num {
+  font-family: 'Fraunces', serif;
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--accent);
+  flex-shrink: 0;
+  letter-spacing: 0.02em;
+  min-width: 2.5rem;
+}
+.process__step > div { display: flex; flex-direction: column; gap: 0.3rem; }
+.process__step strong { color: var(--text); font-weight: 600; font-size: 1.05rem; }
+.process__step span { color: var(--text-dim); font-size: 0.95rem; line-height: 1.65; }
+
+/* ---------- Contact ---------- */
 .section--contact { text-align: left; }
 .contact__text {
   color: var(--text-soft);
   font-size: 1.05rem;
   max-width: 52ch;
-  margin-bottom: 2.5rem;
+  margin-bottom: 2rem;
   line-height: 1.65;
 }
 
+.discord-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+  max-width: 640px;
+}
 .discord-card {
   display: flex;
   align-items: center;
-  gap: 1.25rem;
+  gap: 1rem;
   width: 100%;
-  max-width: 480px;
-  padding: 1.5rem 1.75rem;
+  padding: 1.25rem 1.4rem;
   background: linear-gradient(135deg, var(--bg-elev), var(--accent-soft));
   border: 1px solid var(--border-soft);
   border-radius: var(--radius);
   text-align: left;
   transition: all 0.3s var(--ease);
-  margin-bottom: 2.5rem;
+  cursor: pointer;
 }
 .discord-card:hover {
   border-color: var(--accent);
@@ -486,17 +486,19 @@ main, .nav, .footer { position: relative; z-index: 1; }
   box-shadow: 0 15px 40px -15px rgba(94, 234, 212, 0.25);
 }
 .discord-card__icon {
-  font-size: 1.75rem;
+  font-size: 1.5rem;
   flex-shrink: 0;
+  line-height: 1;
 }
 .discord-card__body {
   display: flex;
   flex-direction: column;
-  gap: 0.1rem;
+  gap: 0.15rem;
   flex: 1;
+  min-width: 0;
 }
 .discord-card__label {
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--accent);
@@ -504,28 +506,35 @@ main, .nav, .footer { position: relative; z-index: 1; }
 }
 .discord-card__handle {
   font-family: 'Fraunces', serif;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 500;
   color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-.discord-card__copy {
+.discord-card__action {
   font-size: 0.7rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--text-dim);
-  padding: 0.5rem 0.9rem;
+  padding: 0.45rem 0.8rem;
   border: 1px solid var(--border-soft);
   border-radius: 999px;
   transition: all 0.2s ease;
   flex-shrink: 0;
 }
-.discord-card.is-copied .discord-card__copy {
+.discord-card:hover .discord-card__action {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+.discord-card.is-copied .discord-card__action {
   color: var(--accent);
   border-color: var(--accent);
 }
 
 .payment-mini {
-  max-width: 480px;
+  max-width: 640px;
   padding-top: 1.5rem;
   border-top: 1px solid var(--border);
 }
@@ -558,32 +567,47 @@ main, .nav, .footer { position: relative; z-index: 1; }
   transform: translateY(30px);
   transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
 }
-.reveal.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
+.reveal.is-visible { opacity: 1; transform: translateY(0); }
 
 /* ---------- Responsive ---------- */
+@media (max-width: 860px) {
+  .section--with-skin {
+    grid-template-columns: 1fr;
+  }
+  .skin {
+    justify-self: flex-end;
+    margin-top: 0;
+    margin-bottom: -2rem;
+    order: -1;
+  }
+  .skin--salute { width: 140px; }
+  .skin--stand  { width: 110px; }
+  .skin--head   { width: 120px; }
+  .skin--torso  { width: 130px; }
+}
+
 @media (max-width: 720px) {
-  .nav { padding: 1rem 1.25rem; }
+  .nav { padding: 0.85rem 1.25rem; }
   .nav__links { gap: 1.25rem; font-size: 0.85rem; }
+  .nav__logo { font-size: 1.1rem; }
+  .nav__pfp { width: 28px; height: 28px; }
   .hero { padding: 5rem 1.25rem 4rem; }
   .hero__scroll { left: 1.25rem; }
+  .hero__title-row { gap: 1rem; }
   .section { padding: 4rem 1.25rem; }
   .projects { grid-template-columns: 1fr; }
   .project { padding: 1.75rem; }
-  .pricing-note { flex-direction: column; align-items: flex-start; gap: 1rem; padding: 1.5rem; }
   .perks__item { padding: 1.25rem; gap: 1rem; }
-  .process__step { gap: 1rem; }
-  .discord-card { flex-wrap: wrap; padding: 1.25rem 1.4rem; }
-  .discord-card__copy { margin-left: auto; }
+  .discord-cards { grid-template-columns: 1fr; }
+  .discord-card { flex-wrap: wrap; }
 }
 
 @media (max-width: 480px) {
-  .nav__links { gap: 1rem; font-size: 0.8rem; }
-  .hero__title { font-size: clamp(2.8rem, 14vw, 4rem); }
-  .discord-card { flex-direction: column; align-items: flex-start; }
-  .discord-card__copy { margin-left: 0; }
+  .nav__links { gap: 0.9rem; font-size: 0.8rem; }
+  .hero__title { font-size: clamp(2.5rem, 13vw, 4rem); }
+  .hero__pfp { width: 52px; height: 52px; }
+  .discord-card { flex-direction: column; align-items: flex-start; gap: 0.8rem; }
+  .discord-card__action { margin-left: 0; }
 }
 
 @media (prefers-reduced-motion: reduce) {
