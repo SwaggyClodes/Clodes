@@ -91,7 +91,8 @@ main, .nav, .footer { position: relative; z-index: 1; }
 
 /* ---------- Hero ---------- */
 .hero {
-  min-height: 100vh;
+  min-height: 100vh; /* fallback */
+  min-height: 100svh; /* stable on mobile - no address bar resize */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -162,16 +163,11 @@ main, .nav, .footer { position: relative; z-index: 1; }
   color: var(--text-dim);
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  will-change: opacity;
-  animation: floaty 3s ease-in-out infinite;
+  opacity: 0.5;
 }
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(20px); }
   to   { opacity: 1; transform: translateY(0); }
-}
-@keyframes floaty {
-  0%, 100% { opacity: 0.3; }
-  50%      { opacity: 1; }
 }
 
 /* ---------- Buttons ---------- */
